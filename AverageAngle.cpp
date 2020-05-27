@@ -1,7 +1,7 @@
 //
 //    FILE: AverageAngle.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.3
+// VERSION: 0.1.4
 // PURPOSE: class for averaging angles
 //     URL: https://github.com/RobTillaart/AverageAngle
 //
@@ -11,6 +11,7 @@
 // 0.1.1 2017-12-09 fixed negative values of average
 // 0.1.2 2018-03-30 added getAverageLength, getTotalLength + zero-test
 // 0.1.3 2020-03-26 #pragma once; removed pre 1.00 support; readme.md
+// 0.1.4 2020-05-27 update library.json
 
 #include "AverageAngle.h"
 

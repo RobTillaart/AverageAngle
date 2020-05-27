@@ -2,17 +2,15 @@
 //
 //    FILE: AverageAngle.h
 //  AUTHOR: Rob dot Tillaart at gmail dot com
-// VERSION: 0.1.3
+// VERSION: 0.1.4
 // PURPOSE: class for averaging angles
 // HISTORY: See AverageAngle.cpp
-//
-// Released to the public domain
 //
 
 #include "math.h"
 #include "Arduino.h"
 
-#define AVERAGE_ANGLE_LIB_VERSION "0.1.3"
+#define AVERAGE_ANGLE_LIB_VERSION "0.1.4"
 
 class AverageAngle
 {
