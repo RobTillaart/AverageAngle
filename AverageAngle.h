@@ -19,20 +19,19 @@ public:
 
     AverageAngle(const enum AngleType type = DEGREES);
 
-    void 	 add(float alpha, float length = 1.0);
+    void 	 add(float alpha);
     void 	 reset();
     uint32_t count() { return _count; };
     float    getAverage();
-
-    float    getTotalLength();
-    float    getAverageLength();
 
     enum     AngleType type() { return _type; };
 
 private:
     enum AngleType _type;
-    float _sumx;
-    float _sumy;
+    float _half_turn;
+    float _full_turn;
+    float _last;
+    float _sum;
     uint32_t _count;
 };
 

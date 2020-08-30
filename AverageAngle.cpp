@@ -19,48 +19,37 @@
 AverageAngle::AverageAngle(const enum AngleType type)
 {
   _type = type;
+  _half_turn = _type==RADIANS ? M_PI : 180;
+  _full_turn = 2 * _half_turn;
   reset();
 }
 
-void AverageAngle::add(float alpha, float length)
+void AverageAngle::add(float alpha)
 {
-  if (_type == AverageAngle::DEGREES )
-  {
-    alpha *= DEG_TO_RAD; 				// (PI / 180.0);
-  }
-  _sumx += (cos(alpha) * length);
-  _sumy += (sin(alpha) * length);
+  // Unwrap.
+  while (alpha < _last - _half_turn)
+    alpha += _full_turn;
+  while (alpha > _last + _half_turn)
+    alpha -= _full_turn;
+  _last = alpha;
+
+  _sum += alpha;
   _count++;
 }
 
 void AverageAngle::reset()
 {
-  _sumx = 0;
-  _sumy = 0;
+  _last = 0;
+  _sum = 0;
   _count = 0;
 }
 
 float AverageAngle::getAverage()
 {
-  float angle = atan2(_sumy, _sumx);
-  if (angle < 0) angle += TWO_PI;		//	(PI * 2);
-  if (_type == AverageAngle::DEGREES )
-  {
-    angle *=  RAD_TO_DEG; 				// (180.0 / PI);
-  }
-  return angle;
-}
-
-float AverageAngle::getTotalLength()
-{
-  if (_count == 0) return 0;
-  return hypot(_sumy, _sumx);
-}
-
-float AverageAngle::getAverageLength()
-{
-  if (_count == 0) return 0;
-  return hypot(_sumy, _sumx) / _count;
+  float avg = _sum/_count;
+  while (avg < 0) avg += _full_turn;
+  while (avg >= _full_turn) avg -= _full_turn;
+  return avg;
 }
 
 // -- END OF FILE --
