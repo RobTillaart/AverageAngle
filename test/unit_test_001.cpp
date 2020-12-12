@@ -51,8 +51,14 @@ unittest(test_degrees)
     assertEqual(i + 1, n);
   }
   assertEqual(10,  aa.count());
-  assertEqual(10,  aa.getTotalLength());
-  assertEqual(1,   aa.getAverageLength());
+
+  fprintf(stderr, "getTotalLength()\n");
+  float diff = abs(10 - aa.getTotalLength());
+  assertMoreOrEqual(0.2, diff);
+  
+  fprintf(stderr, "getAverageLength()\n");
+  diff = abs(1 - aa.getAverageLength());
+  assertEqual(0.01, diff);
   assertEqual(4.5, aa.getAverage());
 }
 
