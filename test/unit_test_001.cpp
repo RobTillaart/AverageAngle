@@ -58,7 +58,7 @@ unittest(test_degrees)
   
   fprintf(stderr, "getAverageLength()\n");
   diff = abs(1 - aa.getAverageLength());
-  assertEqual(0.01, diff);
+  assertMoreOrEqual(0.01, diff);
   assertEqual(4.5, aa.getAverage());
 }
 
