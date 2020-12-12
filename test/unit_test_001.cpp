@@ -37,8 +37,8 @@ unittest(test_constructor)
   AverageAngle dd(AverageAngle::DEGREES);
   AverageAngle rr(AverageAngle::RADIANS);
   
-  assertEqual(0, dd.type());
-  assertEqual(1, rr.type());
+  assertEqual(AverageAngle::DEGREES, dd.type());
+  assertEqual(AverageAngle::RADIANS, rr.type());
 }
 
 unittest(test_degrees)
@@ -51,6 +51,7 @@ unittest(test_degrees)
     assertEqual(i + 1, n);
   }
   assertEqual(10,  aa.count());
+  assertEqual(4.5, aa.getAverage());
 
   fprintf(stderr, "getTotalLength()\n");
   float diff = abs(10 - aa.getTotalLength());
@@ -59,7 +60,6 @@ unittest(test_degrees)
   fprintf(stderr, "getAverageLength()\n");
   diff = abs(1 - aa.getAverageLength());
   assertMoreOrEqual(0.01, diff);
-  assertEqual(4.5, aa.getAverage());
 }
 
 unittest_main()
