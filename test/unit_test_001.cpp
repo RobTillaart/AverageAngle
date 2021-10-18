@@ -64,18 +64,18 @@ unittest(test_degrees)
     int n = aa.add(i);
     assertEqual(i + 1, n);
   }
-  fprintf(stderr, "%f\n", aa.count());
+  fprintf(stderr, "%f\n", aa.getAverage());
   fprintf(stderr, "%f\n", aa.getTotalLength());
   fprintf(stderr, "%f\n", aa.getAverageLength());
 
   assertEqual(10,  aa.count());
-  assertEqualFloat(4.5, aa.getAverage(), 0.01);
+  assertEqualFloat(4.5, aa.getAverage(), 0.001);
 
   fprintf(stderr, "getTotalLength()\n");
-  assertEqualFloat(9.9, aa.getTotalLength(), 0.01);
+  assertEqualFloat(9.987438, aa.getTotalLength(), 0.001);
 
   fprintf(stderr, "getAverageLength()\n");
-  assertEqualFloat(1, aa.getAverageLength(), 0.01);
+  assertEqualFloat(0.9987438, aa.getAverageLength(), 0.001);
 }
 
 
@@ -90,18 +90,14 @@ unittest(test_radians)
     int n = aa.add(i);
     assertEqual(i + 1, n);
   }
-  fprintf(stderr, "%f\n", aa.count());
+  fprintf(stderr, "%f\n", aa.getAverage());
   fprintf(stderr, "%f\n", aa.getTotalLength());
   fprintf(stderr, "%f\n", aa.getAverageLength());
 
   assertEqual(10,  aa.count());
-  assertEqualFloat(1.35841, aa.getAverage(), 0.01);
-
-  fprintf(stderr, "getTotalLength()\n");
-  assertEqualFloat(2, aa.getTotalLength(), 0.01);
-
-  fprintf(stderr, "getAverageLength()\n");
-  assertEqualFloat(0.2, aa.getAverageLength(), 0.01);
+  assertEqualFloat(1.35841, aa.getAverage(), 0.001);
+  assertEqualFloat(2.000152, aa.getTotalLength(), 0.001);
+  assertEqualFloat(0.2000152, aa.getAverageLength(), 0.001);
 }
 
 
@@ -116,18 +112,14 @@ unittest(test_gradians)
     int n = aa.add(i);
     assertEqual(i + 1, n);
   }
-  fprintf(stderr, "%f\n", aa.count());
+  fprintf(stderr, "%f\n", aa.getAverage());
   fprintf(stderr, "%f\n", aa.getTotalLength());
   fprintf(stderr, "%f\n", aa.getAverageLength());
 
   assertEqual(10,  aa.count());
-  assertEqualFloat(0, aa.getAverage(), 0.01);
-
-  fprintf(stderr, "getTotalLength()\n");
-  assertEqualFloat(0, aa.getTotalLength(), 0.01);
-
-  fprintf(stderr, "getAverageLength()\n");
-  assertEqualFloat(0, aa.getAverageLength(), 0.01);
+  assertEqualFloat(4.5, aa.getAverage(), 0.001);
+  assertEqualFloat(9.98982, aa.getTotalLength(), 0.001);
+  assertEqualFloat(0.998982, aa.getAverageLength(), 0.001);
 }
 
 
