@@ -70,11 +70,7 @@ unittest(test_degrees)
 
   assertEqual(10,  aa.count());
   assertEqualFloat(4.5, aa.getAverage(), 0.001);
-
-  fprintf(stderr, "getTotalLength()\n");
   assertEqualFloat(9.987438, aa.getTotalLength(), 0.001);
-
-  fprintf(stderr, "getAverageLength()\n");
   assertEqualFloat(0.9987438, aa.getAverageLength(), 0.001);
 }
 
