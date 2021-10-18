@@ -65,15 +65,13 @@ unittest(test_degrees)
     assertEqual(i + 1, n);
   }
   assertEqual(10,  aa.count());
-  assertEqual(4.5, aa.getAverage());
+  assertEqualFloat(4.5, aa.getAverage(), 0.001);
 
   fprintf(stderr, "getTotalLength()\n");
-  float diff = abs(10 - aa.getTotalLength());
-  assertMoreOrEqual(0.2, diff);
-  
+  assertEqualFloat(9.8, aa.getTotalLength(), 0.001);
+
   fprintf(stderr, "getAverageLength()\n");
-  diff = abs(1 - aa.getAverageLength());
-  assertMoreOrEqual(0.01, diff);
+  assertEqualFloat(1, aa.getAverageLength(), 0.001);
 }
 
 
@@ -89,15 +87,13 @@ unittest(test_radians)
     assertEqual(i + 1, n);
   }
   assertEqual(10,  aa.count());
-  assertEqual(4.5, aa.getAverage());
+  assertEqualFloat(1.35841, aa.getAverage(), 0.001);
 
   fprintf(stderr, "getTotalLength()\n");
-  float diff = abs(10 - aa.getTotalLength());
-  assertMoreOrEqual(0.2, diff);
-  
+  assertEqualFloat(8, aa.getTotalLength(), 0.001);
+
   fprintf(stderr, "getAverageLength()\n");
-  diff = abs(1 - aa.getAverageLength());
-  assertMoreOrEqual(0.01, diff);
+  assertEqualFloat(0.8, aa.getAverageLength(), 0.001);
 }
 
 
@@ -113,15 +109,13 @@ unittest(test_gradians)
     assertEqual(i + 1, n);
   }
   assertEqual(10,  aa.count());
-  assertEqual(4.5, aa.getAverage());
+  assertEqualFloat(1.35841, aa.getAverage(), 0.001);
 
   fprintf(stderr, "getTotalLength()\n");
-  float diff = abs(10 - aa.getTotalLength());
-  assertMoreOrEqual(0.2, diff);
-  
+  assertEqualFloat(8, aa.getTotalLength(), 0.001);
+
   fprintf(stderr, "getAverageLength()\n");
-  diff = abs(1 - aa.getAverageLength());
-  assertMoreOrEqual(0.01, diff);
+  assertEqualFloat(0.8, aa.getAverageLength(), 0.001);
 }
 
 
