@@ -1,7 +1,10 @@
 
 [![Arduino CI](https://github.com/RobTillaart/AverageAngle/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
+[![Arduino-lint](https://github.com/RobTillaart/AverageAngle/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/RobTillaart/AverageAngle/actions/workflows/arduino-lint.yml)
+[![JSON check](https://github.com/RobTillaart/AverageAngle/actions/workflows/jsoncheck.yml/badge.svg)](https://github.com/RobTillaart/AverageAngle/actions/workflows/jsoncheck.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/RobTillaart/AverageAngle/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/RobTillaart/AverageAngle.svg?maxAge=3600)](https://github.com/RobTillaart/AverageAngle/releases)
+
 
 # AverageAngle
 
@@ -29,7 +32,8 @@ Example: The average angle of 359 (length = 2) and 1(length = 1) is 359.somethin
 
 - **enum AngleType { DEGREES, RADIANS, GRADIANS } ** idem. 100 GRADIANS == 90 DEGREES.
 - **AverageAngle(AngleType type = DEGREES)** constructor defaults to degrees.
-- **uint32_t add(float alpha, float length = 1.0)** add a new angle, optional with length. **add()** returns the number of elements (count).
+- **uint32_t add(float alpha, float length = 1.0)** add a new angle, optional with length. 
+**add()** returns the number of elements (count).
 - **void reset()** clears internal buffers.
 - **uint32_t count()** the amount of angles added.
 - **float getAverage() ** returns the average.
@@ -75,8 +79,5 @@ you need to include the length of each step.
 ## Future
 
 - check if other units exist to support.
-
-
-
 
 
