@@ -8,7 +8,7 @@
 
 # AverageAngle
 
-Arduino library to calculate correctly the average of multiple angles
+Arduino library to calculate correctly the average of multiple angles.
 
 
 ## Description
@@ -19,13 +19,12 @@ This is especially useful when angles are around 0 degrees,
 e.g. from a compass sensor or the resultant of a track.
 Example, the average angle of 359 and 1 is 0, not 179 (most of the time)
 
-Furthermore the AverageAngle can also include the **length (weight)** of the angle
-as if it is a vector. Default this length is set to 1 so all angles are by default of
-equal weight.
+Furthermore the AverageAngle can also include the **length (weight)** of the angle as if it is a vector. 
+Default this length is set to 1 so all angles are by default of equal weight.
 
-Example: The average angle of 359 (length = 2) and 1(length = 1) is 359.something not zero.
+Example: The average angle of 359 (length = 2) and 1 (length = 1) is 359.something not zero.
 
-**See also runningAngle class**.
+See also **runningAngle** class.
 
 
 ## Interface
@@ -45,7 +44,8 @@ Example: The average angle of 359 (length = 2) and 1(length = 1) is 359.somethin
 
 ## Gradians
 
-Gradians a.k.a. gon, is a less often used unit for angles. There are 100 gradians in a right angle. A full circle = 400 gradians.
+Gradians a.k.a. gon, is a less often used unit for angles. 
+There are 100 gradians in a right angle. A full circle = 400 gradians.
 
 https://en.wikipedia.org/wiki/Gradian
 
@@ -54,7 +54,7 @@ https://en.wikipedia.org/wiki/Gradian
 
 If you want to average 5 compass readings you can just add the angles and 
 do not use the length parameter.
-```
+```cpp
   AA.reset();
   for (int i = 0; i < 5; i++)
   {
@@ -67,7 +67,7 @@ do not use the length parameter.
 
 If you want to average a track, e.g. 5 steps North, 3 steps west etc, 
 you need to include the length of each step.
-```
+```cpp
   AA.reset();
   AA.add(90, 5);     // 5 steps north
   AA.add(180, 3);    // 3 steps west
@@ -78,6 +78,7 @@ you need to include the length of each step.
 
 ## Future
 
+- Improve documentation. 
 - check if other units exist to support.
 
 
