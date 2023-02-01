@@ -16,7 +16,7 @@ getAverageLength	KEYWORD2
 
 setType	KEYWORD2
 
-getLastError	KEYWORD2
+lastError	KEYWORD2
 
 
 # Constants (LITERAL1)
