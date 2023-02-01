@@ -116,6 +116,7 @@ int AverageAngle::lastError()
 {
   int e = _error;
   _error = AVERAGE_ANGLE_OK;
+  return e;
 }
 
 
