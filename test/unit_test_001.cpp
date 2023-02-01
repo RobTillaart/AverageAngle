@@ -60,9 +60,9 @@ unittest(test_constructor)
   assertEqual(AverageAngle::RADIANS, rr.type());
   assertEqual(AverageAngle::GRADIANS, gg.type());
 
-  assertEqual(AVERAGE_ANGLE_OK, dd.getLastError());
-  assertEqual(AVERAGE_ANGLE_OK, rr.getLastError());
-  assertEqual(AVERAGE_ANGLE_OK, gg.getLastError());
+  assertEqual(AVERAGE_ANGLE_OK, dd.lastError());
+  assertEqual(AVERAGE_ANGLE_OK, rr.lastError());
+  assertEqual(AVERAGE_ANGLE_OK, gg.lastError());
 }
 
 
