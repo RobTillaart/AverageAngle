@@ -76,9 +76,15 @@ float AverageAngle::getAverage()
   {
     angle *= RAD_TO_GRAD;              //  (200.0 / PI);
   }
+
+  //  error reporting
   if (isnan(angle))
   {
     _error = AVERAGE_ANGLE_SINGULARITY;
+  }
+  else
+  {
+    _error = AVERAGE_ANGLE_OK;
   }
   return angle;
 }

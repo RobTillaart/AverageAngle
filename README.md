@@ -53,24 +53,43 @@ These (x,y) are added to a (sumX, sumY) and divided by the number of angles adde
 #include "AverageAngle.h"
 ```
 
+#### Constructor
+
 - **AverageAngle(AngleType type = DEGREES)** constructor, defaults to degrees.
+- **AngleType type()** returns DEGREES, RADIANS or GRADIANS.
+- **void setType(AngleType type)** changes type DEGREES, RADIANS or GRADIANS.
+Type can be changed run time and still continue to add.
+- **void reset()** clears internal counters.
+
+
+#### Core
+
 - **uint32_t add(float alpha, float length = 1.0)** add a new angle, 
 optional with length other than 1. 
 Returns the number of elements (count).
 If the internal sumx or sumy is >= 10000, the error **AVERAGE_ANGLE_OVERFLOW** is set. 
 This indicates that the internal math is near or over its accuracy limits.
-- **void reset()** clears internal counters.
-- **uint32_t count()** the amount of angles added.
+- **uint32_t count()** the number of angles added.
 If count == 0, there is no average.
-- **float getAverage()** returns the average, unless count == 0 
+- **float getAverage()** returns the average, unless count == 0
 or the internal sums == (0,0) in which case we have a singularity ==> NAN (not a number)
+If NAN the error **AVERAGE_ANGLE_SINGULARITY** is set. 
 - **float getTotalLength()** the length of the resulting 'angle' when we see them as vectors.
 If count == 0 ==> total length = 0.
 - **float getAverageLength()** returns the average length of the angles added.
 If count == 0 ==> average length = 0.
-- **AngleType type()** returns DEGREES, RADIANS or GRADIANS.
-- **void setType(AngleType type)** changes type DEGREES, RADIANS or GRADIANS.
-Type can be changed run time and still continue to add. 
+
+
+#### Error handling
+
+- **int lastError()**  return the last error detected.
+
+|  name                       |  value  |
+|:----------------------------|:-------:|
+|  AVERAGE_ANGLE_OK           |   0     |
+|  AVERAGE_ANGLE_OVERFLOW     |  -10    |
+|  AVERAGE_ANGLE_SINGULARITY  |  -20    |
+
 
 
 #### Experimental Overflow
@@ -154,8 +173,15 @@ just change the type runtime.
     normalizing the weight? how? user responsibility?
   - get set threshold via API?
   - use of threshold versus error detection (sum - angle == previous or not)
+  - split OVERFLOW error in X and Y
+
 
 #### Should
+
+- add performance example
+- add overflow example
+- add singularity example
+
 
 #### Could
 
