@@ -28,9 +28,11 @@ The average angle is calculated by converting the added angle (in DEGREES, etc) 
 These (x,y) are added to a (sumX, sumY) and divided by the number of angles added so far. 
 
 
-#### Related to
+#### Related
+
 - https://github.com/RobTillaart/Angle
 - https://github.com/RobTillaart/AngleConvertor
+- https://github.com/RobTillaart/AverageAngle
 - https://github.com/RobTillaart/runningAngle
 
 
@@ -47,10 +49,16 @@ These (x,y) are added to a (sumX, sumY) and divided by the number of angles adde
 
 ## Interface
 
-- **AverageAngle(AngleType type = DEGREES)** constructor defaults to degrees.
+```cpp
+#include "AverageAngle.h"
+```
+
+- **AverageAngle(AngleType type = DEGREES)** constructor, defaults to degrees.
 - **uint32_t add(float alpha, float length = 1.0)** add a new angle, 
 optional with length other than 1. 
 Returns the number of elements (count).
+If the internal sumx or sumy is >= 10000, the error **AVERAGE_ANGLE_OVERFLOW** is set. 
+This indicates that the internal math is near or over its accuracy limits.
 - **void reset()** clears internal counters.
 - **uint32_t count()** the amount of angles added.
 If count == 0, there is no average.
@@ -65,12 +73,34 @@ If count == 0 ==> average length = 0.
 Type can be changed run time and still continue to add. 
 
 
+#### Experimental Overflow
+
+(since 0.2.0)
+
+When the internal sumx or sumy is large (> 10000) the accuracy of the addition
+becomes critical, leading to serious errors in the average and length functions.
+To detect this the function **add()** sets the error **AVERAGE_ANGLE_OVERFLOW**.
+This error can be checked with **lastError()**.
+The function **add()** will add the new angle as good as possible.
+
+Note this condition is independent of the **AngleType** as the internal math 
+uses radians. The condition will be triggered faster when the length parameter 
+is used. 
+
+The overflow threshold of 10000 can be patched in the .cpp file if needed.
+
+As this feature is **experimental**, the trigger condition for overflow will 
+probably be redesigned in the future. See future section below.
+
+
 ## Gradians
 
 Gradians a.k.a. **gon**, is a less often used unit for angles. 
 There are 100 gradians in a right angle. A full circle = 400 gradians.
 
 https://en.wikipedia.org/wiki/Gradian
+
+See also AngleConvertor library.
 
 
 ## Operation
@@ -111,22 +141,29 @@ just change the type runtime.
   Serial.println(AA.getAverage());
 ```
 
-#### Warning
-
-As the internal representation has a limited resolution (float) it can occur that when
-the internal values are large, one cannot add a very small angle any more.
-Did not encounter it yet myself. 
-
-
 ## Future
 
 #### Must
 
+- investigate if and how the internal math can be made more robust against overflow.
+  - use double iso float (will work on certain platforms) (must)
+  - uint32_t?
+  - accuracy threshold depends on float/double usage.  (sizeof(double)==8)
+  - threshold depends on the units of length. 
+    if all add's are using 10000 as length they have equal weight.
+    normalizing the weight? how? user responsibility?
+  - get set threshold via API?
+  - use of threshold versus error detection (sum - angle == previous or not)
+
 #### Should
 
 #### Could
+
 - add a USER AngleType, in which the user can map 0..360 degrees to any range.
   - float userFactor = 1.0;  (default)
   - can even be negative?
   - use cases? e.g 0..4 quadrant?
+  - maybe better for the AngleConvertor class.
+
+#### Wont
 
