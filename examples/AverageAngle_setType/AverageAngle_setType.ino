@@ -1,7 +1,6 @@
 //
 //    FILE: AverageAngle_setType.ino
 //  AUTHOR: Rob Tillaart
-//    DATE: 2021-10-18
 // PURPOSE: demo
 
 
