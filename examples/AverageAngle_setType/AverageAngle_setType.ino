@@ -2,6 +2,7 @@
 //    FILE: AverageAngle_setType.ino
 //  AUTHOR: Rob Tillaart
 // PURPOSE: demo
+//     URL: https://github.com/RobTillaart/AverageAngle
 
 
 #include "AverageAngle.h"

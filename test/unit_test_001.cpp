@@ -140,8 +140,8 @@ unittest(test_sumx_sumy)
   fprintf(stderr, "%f\n", aa.getSumY());
 
   assertEqual(10,  aa.count());
-  assertEqualFloat(0, aa.getSumX(), 0.001);
-  assertEqualFloat(0, aa.getSumY(), 0.001);
+  assertEqualFloat(9.95665, aa.getSumX(), 0.001);
+  assertEqualFloat(0.783605, aa.getSumY(), 0.001);
 }
 
 

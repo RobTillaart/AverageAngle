@@ -5,6 +5,7 @@
 // VERSION: 0.2.2
 //    DATE: 2017-11-21
 // PURPOSE: Arduino library to calculate correctly the average of multiple angles.
+//     URL: https://github.com/RobTillaart/AverageAngle
 
 
 #include "math.h"

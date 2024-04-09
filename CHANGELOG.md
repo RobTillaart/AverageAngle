@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - fix version number
 - refactored **getAverage()** early singularity detection.
 - add **float getSumX()** and **float getSumY()**
+- add example
+- update keywords.txt
 - add unit test
 - minor edits
 
