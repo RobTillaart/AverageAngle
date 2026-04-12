@@ -202,7 +202,8 @@ just change the type runtime.
 
 - add overflow example
 - add singularity example
-
+- noise detection
+  - if every add() adds noise, then noise is order of sumX x 10-6 (float) x count?
 
 #### Could
 
